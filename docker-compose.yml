@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+    obsidian:
+        image: obsidian
+        build:
+          context: .
+          dockerfile: Dockerfile
+          args:
+            buildno: 1
+          labels:
+            - "com.example.description=Local Node Tests"
+            - "com.example.department=Engineering"
+            - "com.example.label-no-value"
+        volumes:
+            - "./fired3:/repo"
+            # - /run/host-services/ssh-auth.sock:/ssh-agent # forward local machine ssh key to docker (non mac use: $SSH_AUTH_SOCK:/ssh-agent)
+            # - /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock
+            # - ${SSH_AUTH_SOCK}:/ssh-agent
+            # - $SSH_AUTH_SOCK:/ssh-agent
+            # - ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK}
+        # environment:
+            # SSH_AUTH_SOCK: /ssh-agent # (non mac use SSH_AUTH_SOCK: /ssh-agent)
+            # SSH_AUTH_SOCK: /run/host-services/ssh-auth.sock
+            # - SSH_AUTH_SOCK="${SSH_AUTH_SOCK}"
+        stdin_open: true
+        tty: true

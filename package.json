@@ -1,0 +1,31 @@
+{
+  "name": "@obsidianstorms/run-docker",
+  "docker": "obsidian",
+  "version": "1.0.0",
+  "description": "Run Docker Environment",
+  "main": " ",
+  "bin": {
+    "docker-access": "bin/access.js",
+    "docker-build": "bin/build.js",
+    "docker-id": "bin/dockerid.js",
+    "docker-halt": "bin/halt.js",
+    "docker-launch": "bin/launch.js",
+    "docker-start": "bin/start.js",
+    "docker-stop": "bin/stop.js"
+  },
+  "scripts": {
+    "initialize": "npm install && npm run build && npm run launch",
+    "access": "run(){ node bin/access.js; }; $(run)",
+    "build": "node bin/build.js",
+    "id": "node bin/dockerid.js",
+    "halt": "node bin/halt.js",
+    "launch": "node bin/launch.js",
+    "start": "node bin/start.js",
+    "stop": "node bin/stop.js"
+  },
+  "author": "Rick Yust",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "shelljs": "^0.8.3"
+  }
+}
