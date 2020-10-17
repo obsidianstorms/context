@@ -37,6 +37,13 @@ Update the following
 * docker-compose.yml services.`[]`.image
 * docker-compose.yml services.`[]`.volumes ./`[]`:/repo
 
+### Nodemon
+
+```nodejs
+npm install nodemon -g
+nodemon app.js
+```
+
 ### Port Forwarding
 
 Normally
