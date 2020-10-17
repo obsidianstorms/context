@@ -37,6 +37,20 @@ Update the following
 * docker-compose.yml services.`[]`.image
 * docker-compose.yml services.`[]`.volumes ./`[]`:/repo
 
+### Port Forwarding
+
+Normally
+
+* services.`[]`.ports - "5501:5501"
+
+However, WSL2
+
+* If run a server.js on port 5501
+  * `http://[::1]:5501/`
+* in WSL: `sudo sysctl -w net.ipv6.conf.all.forwarding=1`
+  * `localhost:5501`
+
+
 ## SSH & GitHub
 
 <https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/testing-your-ssh-connection>

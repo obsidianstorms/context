@@ -26,6 +26,6 @@
   "author": "Rick Yust",
   "license": "UNLICENSED",
   "dependencies": {
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.4"
   }
 }

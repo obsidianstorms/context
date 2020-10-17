@@ -112,3 +112,5 @@ RUN pip3 install mdutils
 ## PART 3: Environment
 ENV PYTHONPATH "${PYTHONPATH}:/usr/local/lib/python3.8/dist-packages"
 RUN mkdir /repo
+RUN mkdir /repo/client
+RUN mkdir /repo/server
