@@ -114,3 +114,6 @@ ENV PYTHONPATH "${PYTHONPATH}:/usr/local/lib/python3.8/dist-packages"
 RUN mkdir /repo
 RUN mkdir /repo/client
 RUN mkdir /repo/server
+
+### PART 3b: Dev Environment
+RUN npm install -g nodemon
