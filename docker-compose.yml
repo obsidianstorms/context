@@ -2,38 +2,6 @@ version: "3.7"
 
 services:
 
-    db:
-        image: postgres:11.9-alpine
-        env_file:
-          - .env
-        volumes:
-          - db:/var/lib/postgresql/data
-        ports:
-          - 5432:5432
-        networks:
-          - db
-
-    fusionauth:
-      image: fusionauth/fusionauth-app:latest
-      depends_on:
-        - db
-      environment:
-        DATABASE_URL: jdbc:postgresql://db:5432/fusionauth
-        DATABASE_ROOT_USERNAME: ${POSTGRES_USER}
-        DATABASE_ROOT_PASSWORD: ${POSTGRES_PASSWORD}
-        DATABASE_USERNAME: ${DATABASE_USERNAME}
-        DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-        FUSIONAUTH_APP_MEMORY: ${FUSIONAUTH_APP_MEMORY}
-        FUSIONAUTH_APP_RUNTIME_MODE: development
-        FUSIONAUTH_APP_URL: http://fusionauth:9011
-        SEARCH_TYPE: database
-      volumes:
-        - fusion:/usr/local/fusionauth/config
-      ports:
-        - 9011:9011
-      networks:
-        - db
-
     obsidian:
         image: obsidian
         build:
@@ -45,22 +13,7 @@ services:
             - "com.example.description=Local Node Tests"
             - "com.example.department=Engineering"
             - "com.example.label-no-value"
-        ports:
-          - "5501:5501"
-          - "5502:5502"
-        networks:
-          - db
         volumes:
-            - "./client:/repo/client"
-            - "./server:/repo/server"
-            - "./sandbox:/repo/sandbox"
+            - "./../project:/repo"
         stdin_open: true
         tty: true
-
-volumes:
-  db:
-  fusion:
-
-networks:
-  db:
-    driver: bridge

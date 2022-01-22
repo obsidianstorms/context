@@ -13,9 +13,19 @@ The docker image mounts a local project folder, as described below.  This keeps 
 
 ## Setup
 
+### Matching Manual Values
+
+* The string in package.json for "docker" property must match the naming convention for the primary service in docker-compose.yml
+* A relevant folder must exist which matches the volume configured in docker-compose.yml. See `Folder Setup` below
+
+### Folder Setup
+
 Modify the `[]` places described in the Docker section below.  The services.`[]` should match the image name you want.  The ./`[]`:/repo should match your project folder, it will be mounted inside the Docker container at the root `/repo` folder.
 
 Might need to run the PATH related command below, from the Errors section.
+
+
+### Creation
 
 Otherwise, run `npm run initialize` to install node packages/dependencies and build Docker image.  Press CTRL-C when finished to exit the docker container.  This command includes a `launch` portion which is necessary after building the container to properly set it up ready for a `start` command.
 
@@ -39,12 +49,16 @@ Update the following
 
 ### Nodemon
 
+Only necessary if building node apps and want it to automatically reload
+
 ```nodejs
 npm install nodemon -g
 nodemon app.js
 ```
 
 ### Port Forwarding
+
+Only necessary if utilizing web browser or other web services traffic between host and/or docker services.
 
 Normally
 

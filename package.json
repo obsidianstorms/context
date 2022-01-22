@@ -1,6 +1,7 @@
 {
   "name": "@obsidianstorms/run-docker",
   "docker": "obsidian",
+  "node_v": "16.13.2",
   "version": "1.0.0",
   "description": "Run Docker Environment",
   "main": " ",
